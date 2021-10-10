@@ -38,5 +38,5 @@ Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP pl
 To work around that, this fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a generic Unity game patcher and plugin framework.
 
 The provided download contains :
-- BepInEx 5.4.17 (LGPL-2.1 License)
-- A BepInEx plugin named `AssemblyLoaderFixBepInEx.dll` that patch the faulty KSP 1.12.2 method (MIT license)
+- BepInEx 5.4.17 (`LGPL-2.1` License)
+- A BepInEx plugin named `AssemblyLoaderFixBepInEx.dll` that patch the faulty KSP 1.12.2 method (`MIT` license)
