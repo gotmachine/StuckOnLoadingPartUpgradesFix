@@ -34,6 +34,8 @@ Parameter name: index
 
 ### Details and licensing
 
+See corresponding [KSP bugtracker issue](https://bugs.kerbalspaceprogram.com/issues/28036).
+
 Note that there is a manual workaround to this bug : search your `GameData` and subfolders contents for `*.dll` files with the exact same name, and rename the duplicates to something like `*.dll.duplicate` (or just delete it). 
 
 However, this can have some (unlikely) side issues, and is quite unpractical, so while we wait for a proper fix in an hypothetical KSP 1.12.3 release, I've attempted to to provide an easier solution. 
