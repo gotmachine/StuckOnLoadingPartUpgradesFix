@@ -32,7 +32,7 @@ Parameter name: index
   - On MacOS, this is the folder containing the `KSP.app` file
 - Done !
 
-### Details and licensing
+### Details
 
 See corresponding [KSP bugtracker issue](https://bugs.kerbalspaceprogram.com/issues/28036).
 
@@ -46,6 +46,8 @@ I've initially tried to make a `Mono.Cecil` based patcher for the KSP `Assembly-
 
 So the fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a popular Unity/XNA runtime patcher and plugin framework used for many games (Valheim, Outwards, WorldBox...).
 
+### Licensing
+
 The provided download contains :
-- BepInEx 5.4.17 : `LGPL-2.1` License
-- A [BepInEx plugin](https://github.com/gotmachine/StuckOnLoadingPartUpgradesFix) named `AssemblyLoaderFixBepInEx.dll` that patch the faulty KSP 1.12.2 method : `MIT` license
+- BepInEx 5.4.17 : **`LGPL-2.1`** license
+- A BepInEx plugin ([source](https://github.com/gotmachine/StuckOnLoadingPartUpgradesFix)) named `AssemblyLoaderFixBepInEx.dll` that patch the faulty KSP 1.12.2 method : **`MIT`** license
