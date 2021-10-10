@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0F6AC64-BA8B-4EE2-BA8F-F62AD2C94175}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyLoaderFixBepInEx</RootNamespace>
+    <AssemblyName>AssemblyLoaderFixBepInEx</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony20">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\BepInEx\core\0Harmony20.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\BepInEx\core\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="HarmonyXInterop">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\BepInEx\core\HarmonyXInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="KSPAssets">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\KSPAssets.dll</HintPath>
+    </Reference>
+    <Reference Include="KSPTrackIR">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\KSPTrackIR.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\BepInEx\core\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.RuntimeDetour">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\BepInEx\core\MonoMod.RuntimeDetour.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\BepInEx\core\MonoMod.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>K:\Projets\KSP\Kerbal Space Program 1.12.2 BEPINEX\KSP_x64_Data\Managed\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyLoaderFix.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
