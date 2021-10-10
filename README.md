@@ -25,17 +25,18 @@ Parameter name: index
 
 ### How to fix ?
 
-- Download `KSP1.12.2-StuckOnLoadingPartUpgradesFix.zip` file from the [releases page](https://github.com/gotmachine/StuckOnLoadingPartUpgradesFix/releases).
+- Download the `KSP1.12.2-StuckOnLoadingPartUpgradesFix.zip` file from the **[GitHub releases page](https://github.com/gotmachine/StuckOnLoadingPartUpgradesFix/releases)**.
 - Extract that zip content **to the root KSP folder** (**NOT GameData**) :
   - On Windows, this is the folder containing the `KSP_x64.exe` file
   - On Linux, this is the folder containing the `KSP.x86_64` file
   - On MacOS, this is the folder containing the `KSP.app` file
 - Done !
 
-### Information and Licensing
+### Details and licensing
 
-Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP plugin loader to crash before any plugin has a chance to execute.
-To work around that, this fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a generic Unity game patcher and plugin framework.
+Note that there is a manual workaround to this bug : search your `GameData` and subfolders contents for `*.dll` files with the exact same name, and rename the duplicates to something like `*.dll.duplicate` (or just delete it). However, this can have some (unlikely) side issues, and is qute unpractical.
+
+While we wait for a proper fix in an hypothetical KSP 1.12.3 release, I've attempted to to provide an easier solution. Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP plugin loader to crash before any plugin has a chance to execute. I've initially tried to make a `Mono.Cecil` based patcher for the KSP `Assembly-CSharp.dll` assembly, however `Mono.Cecil` fails to rewrite the KSP assembly correctly due to obfuscation. So the fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a popular Unity/XNA runtime patcher and plugin framework used for many games (Valheim, Outwards, WorldBox...).
 
 The provided download contains :
 - BepInEx 5.4.17 (`LGPL-2.1` License)
