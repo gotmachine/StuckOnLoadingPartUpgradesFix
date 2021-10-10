@@ -34,10 +34,16 @@ Parameter name: index
 
 ### Details and licensing
 
-Note that there is a manual workaround to this bug : search your `GameData` and subfolders contents for `*.dll` files with the exact same name, and rename the duplicates to something like `*.dll.duplicate` (or just delete it). However, this can have some (unlikely) side issues, and is qute unpractical.
+Note that there is a manual workaround to this bug : search your `GameData` and subfolders contents for `*.dll` files with the exact same name, and rename the duplicates to something like `*.dll.duplicate` (or just delete it). 
 
-While we wait for a proper fix in an hypothetical KSP 1.12.3 release, I've attempted to to provide an easier solution. Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP plugin loader to crash before any plugin has a chance to execute. I've initially tried to make a `Mono.Cecil` based patcher for the KSP `Assembly-CSharp.dll` assembly, however `Mono.Cecil` fails to rewrite the KSP assembly correctly due to obfuscation. So the fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a popular Unity/XNA runtime patcher and plugin framework used for many games (Valheim, Outwards, WorldBox...).
+However, this can have some (unlikely) side issues, and is quite unpractical, so while we wait for a proper fix in an hypothetical KSP 1.12.3 release, I've attempted to to provide an easier solution. 
+
+Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP plugin loader to crash before any plugin has a chance to execute. 
+
+I've initially tried to make a `Mono.Cecil` based patcher for the KSP `Assembly-CSharp.dll` assembly, however `Mono.Cecil` fails to rewrite the KSP assembly correctly due to obfuscation. 
+
+So the fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a popular Unity/XNA runtime patcher and plugin framework used for many games (Valheim, Outwards, WorldBox...).
 
 The provided download contains :
-- BepInEx 5.4.17 (`LGPL-2.1` License)
-- A BepInEx plugin named `AssemblyLoaderFixBepInEx.dll` that patch the faulty KSP 1.12.2 method (`MIT` license)
+- BepInEx 5.4.17 : `LGPL-2.1` License
+- A [BepInEx plugin](https://github.com/gotmachine/StuckOnLoadingPartUpgradesFix) named `AssemblyLoaderFixBepInEx.dll` that patch the faulty KSP 1.12.2 method : `MIT` license
