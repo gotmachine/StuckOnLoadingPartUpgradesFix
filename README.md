@@ -25,15 +25,14 @@ Parameter name: index
 
 ### How to fix ?
 
-#### Short version :
 - Download `KSP1.12.2-StuckOnLoadingPartUpgradesFix.zip` file from the [releases page](https://github.com/gotmachine/StuckOnLoadingPartUpgradesFix/releases).
-- Extract that zip content **to the root KSP folder** (**NOT** `GameData`) :
+- Extract that zip content **to the root KSP folder** (**NOT GameData**) :
   - On Windows, this is the folder containing the `KSP_x64.exe` file
   - On Linux, this is the folder containing the `KSP.x86_64` file
   - On MacOS, this is the folder containing the `KSP.app` file
 - Done !
 
-#### Long version :
+### Information and Licensing
 
 Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP plugin loader to crash before any plugin has a chance to execute.
 To work around that, this fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a generic Unity game patcher and plugin framework.
