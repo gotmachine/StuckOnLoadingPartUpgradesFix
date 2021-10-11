@@ -23,6 +23,10 @@ Parameter name: index
 	LoadingScreen:Start()
 ```
 
+This also fix two other issues that have the same effect (but are less likely to happen, as most mod authors have already implemented workarounds)
+- AssemblyLoader crashing on attempting to load a `*.dll` file with an absent or non-parseable `FileVersion` attribute : [bugtracker issue](https://bugs.kerbalspaceprogram.com/issues/28289)
+- AssemblyLoader crashing when an unmanaged `*.dll` file exists : [bugtracker issue](https://bugs.kerbalspaceprogram.com/issues/28489)
+
 ### How to fix ?
 
 - Download the `KSP1.12.2-StuckOnLoadingPartUpgradesFix.zip` file from the **[GitHub releases page](https://github.com/gotmachine/StuckOnLoadingPartUpgradesFix/releases)**.
@@ -45,6 +49,11 @@ Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP pl
 I've initially tried to make a `Mono.Cecil` based patcher for the KSP `Assembly-CSharp.dll` assembly, however `Mono.Cecil` fails to rewrite the KSP assembly correctly due to obfuscation. 
 
 So the fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a popular Unity/XNA runtime patcher and plugin framework used for many games (Valheim, Outwards, WorldBox...).
+
+### Changelog
+
+- V1.1 : Added fixes for AssemblyLoader crashes on dlls containing no `FileVersion` attribute, or non-managed dlls.
+- V1.0 : Initial release
 
 ### Licensing
 
