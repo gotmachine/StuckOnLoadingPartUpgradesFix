@@ -43,7 +43,7 @@ So the fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx),
 
 If you are redistributing a `*.dll` file that is likely to be also redistribtued by another mod, you can prevent the issue by renaming that `*.dll` to something unique. For example rename `SomeLibrary.dll` to `SomeLibrary_MyMod.dll`. Due to the fact that mono will only load a single instance of the same assembly by internal name, this is safe to do. 
 
-The only caveat is that there will be multiple `PluginLoader.loadedAssembly` entries for the same assembly, so keep that in mind in the unlikely case you are iterating on it.
+The only caveat is that there will be multiple `LoadedAssembly` entries in `PluginLoader.loadedAssemblies` for the same assembly, so keep that in mind in the very unlikely case you are iterating on it.
 
 Common cases :
 - MiniAVC (depreciated and shouldn't be used)
