@@ -2,7 +2,9 @@
 
 This is a fix for the KSP 1.12.2 bug that cause the game to be stuck on `Loading Part Upgrades` on a modded install.
 
-This bug happens when you have a duplicated `*.dll` file in you `GameData` folder/subfolders. In KSP 1.12, the code that is supposed to be handling that (perfectly normal, mod authors aren't doing anything wrong) situation is crashing, causing the whole loading process to stop.
+This bug happens when you have a duplicated `*.dll` file in you `GameData` folder/subfolders. In KSP 1.12, the code that is supposed to be handling that (perfectly normal, mod authors aren't doing anything wrong) situation is either :
+- Crashing with an ArgumentOutOfRangeException, causing the whole loading process to stop.
+- Silently removing random assemblies from the list of assemblies to be loaded, causing random issues.
 
 If that is happening to you, you will see the following error near the beginning of your `KSP.log` file :
 ```
@@ -12,15 +14,6 @@ Parameter name: index
 	System.ThrowHelper.ThrowArgumentOutOfRangeException ()
 	System.Collections.Generic.List`1[T].RemoveAt (System.Int32 index)
 	AssemblyLoader.FlagDuplicatedPlugins ()
-	GameDatabase+<LoadObjects>d__90.MoveNext ()
-	UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress)
-	UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
-	<CreateDatabase>d__71:MoveNext()
-	UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
-	GameDatabase:StartLoad()
-	<LoadSystems>d__11:MoveNext()
-	UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
-	LoadingScreen:Start()
 ```
 
 This also fix two other issues that have the same effect (but are less likely to happen, as most mod authors have already implemented workarounds)
@@ -42,13 +35,22 @@ See corresponding [KSP bugtracker issue](https://bugs.kerbalspaceprogram.com/iss
 
 Note that there is a manual workaround to this bug : search your `GameData` and subfolders contents for `*.dll` files with the exact same name, and rename the duplicates to something like `*.dll.duplicate` (or just delete it). 
 
-However, this can have some (unlikely) side issues, and is quite unpractical, so while we wait for a proper fix in an hypothetical KSP 1.12.3 release, I've attempted to to provide an easier solution. 
-
-Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP plugin loader to crash before any plugin has a chance to execute. 
-
-I've initially tried to make a `Mono.Cecil` based patcher for the KSP `Assembly-CSharp.dll` assembly, however `Mono.Cecil` fails to rewrite the KSP assembly correctly due to obfuscation. 
+However, this is quite unpractical, so while we wait for a proper fix in an hypothetical KSP 1.12.3 release, I've attempted to to provide an easier solution. Fixing this bug can't be done from a KSP plugin, since it cause the whole KSP plugin loader to crash before any plugin has a chance to execute. 
 
 So the fix is implemented through [BepInEx](https://github.com/BepInEx/BepInEx), a popular Unity/XNA runtime patcher and plugin framework used for many games (Valheim, Outwards, WorldBox...).
+
+### Note to modders : workaround
+
+If you are redistributing a `*.dll` file that is likely to be also redistribtued by another mod, you can prevent the issue by renaming that `*.dll` to something unique. For example rename `SomeLibrary.dll` to `SomeLibrary_MyMod.dll`. Due to the fact that mono will only load a single instance of the same assembly by internal name, this is safe to do. 
+
+The only caveat is that there will be multiple `PluginLoader.loadedAssembly` entries for the same assembly, so keep that in mind in the unlikely case you are iterating on it.
+
+Common cases :
+- MiniAVC (depreciated and shouldn't be used)
+- `KAS-API-v2.dll` (Kerbal Attachement System API) 
+- `CLSInterfaces.dll` (Connected Living Spaces API)
+- Unity Mono/.NET libraries missing from the KSP distribution, like `System.IO.Compression.dll`
+- Any nuget package
 
 ### Changelog
 
