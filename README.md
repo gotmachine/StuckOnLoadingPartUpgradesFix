@@ -1,3 +1,6 @@
+# THIS MOD IS DEPRECIATED AND THE KSP ISSUE IT TARGETED WAS FIXED IN KSP 1.12.3
+Moreover, this mod will conflict with other mods using KSPHarmony, installing it **will** cause issues.
+
 # StuckOnLoadingPartUpgradesFix
 
 This is a fix for the KSP 1.12.2 bug that cause the game to be stuck on `Loading Part Upgrades` on a modded install.
