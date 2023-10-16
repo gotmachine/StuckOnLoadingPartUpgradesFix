@@ -1,5 +1,6 @@
 # THIS MOD IS DEPRECIATED AND THE KSP ISSUE IT TARGETED WAS FIXED IN KSP 1.12.3
-Moreover, this mod will conflict with other mods using KSPHarmony, installing it **will** cause issues.
+Just update KSP to the latest version.
+Moreover, this mod conflicts with other mods using KSPHarmony, installing it **will** cause issues.
 
 # StuckOnLoadingPartUpgradesFix
 
